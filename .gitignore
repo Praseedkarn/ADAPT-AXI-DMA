@@ -1,0 +1,17 @@
+# Simulation
+dma_sim
+*.vcd
+*.vvp
+*.log
+
+# Build / generated files
+*.o
+*.out
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
