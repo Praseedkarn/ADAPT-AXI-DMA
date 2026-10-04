@@ -6,24 +6,24 @@ module axi4_lite_slave #(
     input  logic rst_n,
 
     //============================================================
-    // AXI4-Lite Write Address Channel
+    // AXI-Lite Write Address Channel
     //============================================================
 
     input  logic [ADDR_WIDTH-1:0] s_axi_awaddr,
-    input logic                  s_axi_awvalid,
-    output logic                 s_axi_awready,
+    input  logic                  s_axi_awvalid,
+    output logic                  s_axi_awready,
 
     //============================================================
-    // AXI4-Lite Write Data Channel
+    // AXI-Lite Write Data Channel
     //============================================================
 
-    input  logic [DATA_WIDTH-1:0] s_axi_wdata,
-    input logic [DATA_WIDTH/8-1:0] s_axi_wstrb,
-    input logic                   s_axi_wvalid,
-    output logic                  s_axi_wready,
+    input  logic [DATA_WIDTH-1:0]   s_axi_wdata,
+    input  logic [DATA_WIDTH/8-1:0] s_axi_wstrb,
+    input  logic                   s_axi_wvalid,
+    output logic                   s_axi_wready,
 
     //============================================================
-    // AXI4-Lite Write Response Channel
+    // AXI-Lite Write Response Channel
     //============================================================
 
     output logic [1:0] s_axi_bresp,
@@ -31,7 +31,7 @@ module axi4_lite_slave #(
     input  logic       s_axi_bready,
 
     //============================================================
-    // AXI4-Lite Read Address Channel
+    // AXI-Lite Read Address Channel
     //============================================================
 
     input  logic [ADDR_WIDTH-1:0] s_axi_araddr,
@@ -39,50 +39,64 @@ module axi4_lite_slave #(
     output logic                  s_axi_arready,
 
     //============================================================
-    // AXI4-Lite Read Data Channel
+    // AXI-Lite Read Data Channel
     //============================================================
 
     output logic [DATA_WIDTH-1:0] s_axi_rdata,
-    output logic [1:0]             s_axi_rresp,
-    output logic                   s_axi_rvalid,
-    input  logic                   s_axi_rready,
+    output logic [1:0]            s_axi_rresp,
+    output logic                  s_axi_rvalid,
+    input  logic                  s_axi_rready,
 
     //============================================================
-    // Internal Register Interface
+    // Register Interface
     //============================================================
 
-    output logic                   reg_write_en,
+    output logic                  reg_write_en,
     output logic [ADDR_WIDTH-1:0] reg_write_addr,
     output logic [DATA_WIDTH-1:0] reg_write_data,
 
-    output logic                   reg_read_en,
+    output logic                  reg_read_en,
     output logic [ADDR_WIDTH-1:0] reg_read_addr,
-    input  logic [DATA_WIDTH-1:0] reg_read_data
+
+    input logic [DATA_WIDTH-1:0]  reg_read_data
 );
+
 
     //============================================================
     // Internal Write Registers
     //============================================================
 
-    logic                  aw_received;
-    logic                  w_received;
+    logic aw_received;
+    logic w_received;
 
-    logic [ADDR_WIDTH-1:0] awaddr_reg;
-    logic [DATA_WIDTH-1:0] wdata_reg;
+    logic [ADDR_WIDTH-1:0]   awaddr_reg;
+    logic [DATA_WIDTH-1:0]   wdata_reg;
     logic [DATA_WIDTH/8-1:0] wstrb_reg;
 
+
     //============================================================
-    // AXI READY Signals
+    // AXI-Lite READY Signals
     //============================================================
 
     always_comb begin
 
+        // Accept AW only when previous write is not waiting
+        // for a response.
+
         s_axi_awready = !aw_received && !s_axi_bvalid;
-        s_axi_wready  = !w_received  && !s_axi_bvalid;
+
+        // Accept W only when previous write is not waiting
+        // for a response.
+
+        s_axi_wready  = !w_received && !s_axi_bvalid;
+
+        // Read address can be accepted when no read response
+        // is currently outstanding.
 
         s_axi_arready = !s_axi_rvalid;
 
     end
+
 
     //============================================================
     // Capture Write Address and Write Data
@@ -102,31 +116,49 @@ module axi4_lite_slave #(
         end
         else begin
 
+            // ---------------------------------------------------
             // Capture AW channel
+            // ---------------------------------------------------
+
             if (s_axi_awvalid && s_axi_awready) begin
+
                 aw_received <= 1'b1;
                 awaddr_reg  <= s_axi_awaddr;
+
             end
 
+
+            // ---------------------------------------------------
             // Capture W channel
+            // ---------------------------------------------------
+
             if (s_axi_wvalid && s_axi_wready) begin
+
                 w_received <= 1'b1;
                 wdata_reg  <= s_axi_wdata;
                 wstrb_reg  <= s_axi_wstrb;
+
             end
 
-            // Clear after response handshake
+
+            // ---------------------------------------------------
+            // Clear captured write information after B handshake
+            // ---------------------------------------------------
+
             if (s_axi_bvalid && s_axi_bready) begin
+
                 aw_received <= 1'b0;
                 w_received  <= 1'b0;
+
             end
 
         end
 
     end
 
+
     //============================================================
-    // Register Write
+    // Register Write Interface
     //============================================================
 
     always_comb begin
@@ -135,13 +167,19 @@ module axi4_lite_slave #(
         reg_write_addr = awaddr_reg;
         reg_write_data = wdata_reg;
 
-        if (aw_received && w_received && !s_axi_bvalid)
+        if (aw_received &&
+            w_received &&
+            !s_axi_bvalid) begin
+
             reg_write_en = 1'b1;
+
+        end
 
     end
 
+
     //============================================================
-    // Write Response
+    // AXI-Lite Write Response
     //============================================================
 
     always_ff @(posedge clk or negedge rst_n) begin
@@ -154,16 +192,26 @@ module axi4_lite_slave #(
         end
         else begin
 
-            // Both AW and W have arrived
-            if (aw_received && w_received && !s_axi_bvalid) begin
+            // ---------------------------------------------------
+            // Both AW and W have been received.
+            // Generate OKAY response.
+            // ---------------------------------------------------
+
+            if (aw_received &&
+                w_received &&
+                !s_axi_bvalid) begin
 
                 s_axi_bvalid <= 1'b1;
                 s_axi_bresp  <= 2'b00;
 
             end
 
-            // Master accepted response
-            else if (s_axi_bvalid && s_axi_bready) begin
+            // ---------------------------------------------------
+            // Complete B channel handshake.
+            // ---------------------------------------------------
+
+            else if (s_axi_bvalid &&
+                     s_axi_bready) begin
 
                 s_axi_bvalid <= 1'b0;
 
@@ -173,35 +221,28 @@ module axi4_lite_slave #(
 
     end
 
+
     //============================================================
-    // Read Address
+    // Register Read Interface
     //============================================================
 
-    always_ff @(posedge clk or negedge rst_n) begin
+    always_comb begin
 
-        if (!rst_n) begin
+        reg_read_en   = 1'b0;
+        reg_read_addr = s_axi_araddr;
 
-            reg_read_en   <= 1'b0;
-            reg_read_addr <= '0;
+        if (s_axi_arvalid &&
+            s_axi_arready) begin
 
-        end
-        else begin
-
-            reg_read_en <= 1'b0;
-
-            if (s_axi_arvalid && s_axi_arready) begin
-
-                reg_read_en   <= 1'b1;
-                reg_read_addr <= s_axi_araddr;
-
-            end
+            reg_read_en = 1'b1;
 
         end
 
     end
 
+
     //============================================================
-    // Read Response
+    // AXI-Lite Read Response
     //============================================================
 
     always_ff @(posedge clk or negedge rst_n) begin
@@ -215,35 +256,25 @@ module axi4_lite_slave #(
         end
         else begin
 
-            if (s_axi_arvalid && s_axi_arready) begin
+            // ---------------------------------------------------
+            // Accept read request
+            // ---------------------------------------------------
+
+            if (s_axi_arvalid &&
+                s_axi_arready) begin
 
                 s_axi_rvalid <= 1'b1;
+                s_axi_rdata  <= reg_read_data;
                 s_axi_rresp  <= 2'b00;
 
-                case (s_axi_araddr)
-
-                    32'h00000000:
-                        s_axi_rdata <= 32'h00000000;
-
-                    32'h00000004:
-                        s_axi_rdata <= reg_read_data;
-
-                    32'h00000008:
-                        s_axi_rdata <= reg_read_data;
-
-                    32'h0000000C:
-                        s_axi_rdata <= reg_read_data;
-
-                    32'h00000010:
-                        s_axi_rdata <= reg_read_data;
-
-                    default:
-                        s_axi_rdata <= 32'h00000000;
-
-                endcase
-
             end
-            else if (s_axi_rvalid && s_axi_rready) begin
+
+            // ---------------------------------------------------
+            // Complete read response
+            // ---------------------------------------------------
+
+            else if (s_axi_rvalid &&
+                     s_axi_rready) begin
 
                 s_axi_rvalid <= 1'b0;
 
@@ -252,7 +283,5 @@ module axi4_lite_slave #(
         end
 
     end
-
-    
 
 endmodule
