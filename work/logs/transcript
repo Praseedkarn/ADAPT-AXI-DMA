@@ -1,0 +1,277 @@
+# ** Note: (vsim-220) 'modelsim.ini' is used as the ini file.
+# vsim -c -voptargs="+acc" "+UVM_TESTNAME=dma_error_test" work.uvm_tb_top -do "run -all; quit -f" 
+# Start time: 18:59:26 on Oct 04,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Altera Starter FPGA Edition-64
+# //  Version 2025.2 linux_x86_64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.axi_lite_if(fast)
+# Loading work.axi4_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.dma_uvm_pkg(fast)
+# Loading work.uvm_tb_top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.uvm_tb_top(fast)
+# Loading work.axi_lite_if(fast__2)
+# Loading work.axi4_if(fast__2)
+# Loading work.axi4_dma_top(fast)
+# Loading work.axi4_lite_slave(fast)
+# Loading work.dma_registers(fast)
+# Loading work.dma_controller(fast)
+# Loading work.axi4_read_master(fast)
+# Loading work.dma_fifo(fast)
+# Loading work.axi4_write_master(fast)
+# Loading /home/praseed/altera/25.1std/questa_fse/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test dma_error_test...
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(93) @ 0: uvm_test_top.env.scoreboard [SCOREBOARD] DMA scoreboard created
+# UVM_INFO uvm/env/dma_env.sv(127) @ 0: uvm_test_top.env [DMA_ENV] DMA UVM environment constructed successfully
+# UVM_INFO uvm/tests/dma_error_test.sv(36) @ 0: uvm_test_top [DMA_ERROR_TEST] AXI SLVERR injection ENABLED for READ and WRITE
+# UVM_INFO uvm/tests/dma_basic_test.sv(57) @ 1000: uvm_test_top [DMA_TEST] Starting pseudo-randomized DMA UVM test
+# UVM_INFO uvm/tests/dma_basic_test.sv(113) @ 1000: uvm_test_top [DMA_TEST] Pseudo-Random DMA: SRC=0x00001074 DST=0x000020cc LEN=36 bytes
+# UVM_INFO uvm/sequences/dma_sequence.sv(65) @ 1000: uvm_test_top.env.axi_lite_ag.sequencer@@seq [DMA_SEQ] DMA CONFIG: SRC=0x00001074 DST=0x000020cc LENGTH=36
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_driver.sv(74) @ 55000: uvm_test_top.env.axi_lite_ag.driver [AXIL_DRV] Driving AXI-Lite transaction: CMD=WRITE ADDR=0x00000008 DATA=0x00001074 STRB=0xf
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(127) @ 60000: uvm_test_top.env.scoreboard [SCOREBOARD] CONFIG: SRC_ADDR = 0x00001074
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_monitor.sv(97) @ 60000: uvm_test_top.env.axi_lite_ag.monitor [AXIL_MON] Observed WRITE: ADDR=0x00000008 DATA=0x00001074
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_driver.sv(74) @ 100000: uvm_test_top.env.axi_lite_ag.driver [AXIL_DRV] Driving AXI-Lite transaction: CMD=WRITE ADDR=0x0000000c DATA=0x000020cc STRB=0xf
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(149) @ 110000: uvm_test_top.env.scoreboard [SCOREBOARD] CONFIG: DST_ADDR = 0x000020cc
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_monitor.sv(97) @ 110000: uvm_test_top.env.axi_lite_ag.monitor [AXIL_MON] Observed WRITE: ADDR=0x0000000c DATA=0x000020cc
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_driver.sv(74) @ 150000: uvm_test_top.env.axi_lite_ag.driver [AXIL_DRV] Driving AXI-Lite transaction: CMD=WRITE ADDR=0x00000010 DATA=0x00000024 STRB=0xf
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(173) @ 160000: uvm_test_top.env.scoreboard [SCOREBOARD] CONFIG: LENGTH = 36 bytes (9 beats)
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_monitor.sv(97) @ 160000: uvm_test_top.env.axi_lite_ag.monitor [AXIL_MON] Observed WRITE: ADDR=0x00000010 DATA=0x00000024
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_driver.sv(74) @ 200000: uvm_test_top.env.axi_lite_ag.driver [AXIL_DRV] Driving AXI-Lite transaction: CMD=WRITE ADDR=0x00000000 DATA=0x00000001 STRB=0xf
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(203) @ 210000: uvm_test_top.env.scoreboard [SCOREBOARD] CONFIG: DMA START detected
+# UVM_INFO uvm/agents/axi_lite_agent/axi_lite_monitor.sv(97) @ 210000: uvm_test_top.env.axi_lite_ag.monitor [AXIL_MON] Observed WRITE: ADDR=0x00000000 DATA=0x00000001
+# UVM_INFO uvm/sequences/dma_sequence.sv(121) @ 250000: uvm_test_top.env.axi_lite_ag.sequencer@@seq [DMA_SEQ] DMA START command issued
+# UVM_INFO uvm/tests/dma_basic_test.sv(138) @ 250000: uvm_test_top [DMA_TEST] Pseudo-random DMA sequence completed
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 255000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001074 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 255000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001074 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 265000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa500041d LAST=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 265000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001074 DATA=0xa500041d
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 265000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001074 DATA=0xa500041d
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 265000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001074 DATA=0xa500041d RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 285000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020cc LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 285000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020cc LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 295000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020cc DATA=0xa500041d STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 295000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020cc DATA=0xa500041d LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 295000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 305000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 305000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 305000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020cc DATA=0xa500041d
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 305000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020cc DATA=0xa500041d
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 305000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 325000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001078 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 325000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001078 LEN=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 335000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001078 DATA=0xa500041e
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 335000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001078 DATA=0xa500041e
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 335000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001078 DATA=0xa500041e RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 335000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa500041e LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 355000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020d0 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 355000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020d0 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 365000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020d0 DATA=0xa500041e LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 365000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 365000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020d0 DATA=0xa500041e STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 375000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 375000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020d0 DATA=0xa500041e
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 375000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020d0 DATA=0xa500041e
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 375000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 375000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 395000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x0000107c LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 395000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x0000107c LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 405000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa500041f LAST=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 405000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x0000107c DATA=0xa500041f
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 405000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x0000107c DATA=0xa500041f
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 405000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x0000107c DATA=0xa500041f RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 425000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020d4 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 425000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020d4 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 435000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020d4 DATA=0xa500041f STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 435000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020d4 DATA=0xa500041f LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 435000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 445000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 445000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 445000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020d4 DATA=0xa500041f
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 445000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020d4 DATA=0xa500041f
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 445000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 465000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001080 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 465000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001080 LEN=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 475000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001080 DATA=0xa5000420
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 475000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001080 DATA=0xa5000420
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 475000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001080 DATA=0xa5000420 RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 475000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa5000420 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 495000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020d8 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 495000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020d8 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 505000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020d8 DATA=0xa5000420 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 505000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 505000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020d8 DATA=0xa5000420 STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 515000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 515000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020d8 DATA=0xa5000420
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 515000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020d8 DATA=0xa5000420
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 515000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 515000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 535000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001084 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 535000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001084 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 545000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa5000421 LAST=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 545000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001084 DATA=0xa5000421
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 545000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001084 DATA=0xa5000421
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 545000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001084 DATA=0xa5000421 RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 565000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020dc LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 565000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020dc LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 575000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020dc DATA=0xa5000421 STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 575000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020dc DATA=0xa5000421 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 575000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 585000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 585000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 585000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020dc DATA=0xa5000421
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 585000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020dc DATA=0xa5000421
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 585000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 605000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001088 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 605000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001088 LEN=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 615000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001088 DATA=0xa5000422
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 615000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001088 DATA=0xa5000422
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 615000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001088 DATA=0xa5000422 RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 615000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa5000422 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 635000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020e0 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 635000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020e0 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 645000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020e0 DATA=0xa5000422 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 645000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 645000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020e0 DATA=0xa5000422 STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 655000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 655000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020e0 DATA=0xa5000422
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 655000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020e0 DATA=0xa5000422
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 655000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 655000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 675000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x0000108c LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 675000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x0000108c LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 685000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa5000423 LAST=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 685000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x0000108c DATA=0xa5000423
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 685000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x0000108c DATA=0xa5000423
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 685000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x0000108c DATA=0xa5000423 RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 705000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020e4 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 705000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020e4 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 715000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020e4 DATA=0xa5000423 STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 715000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020e4 DATA=0xa5000423 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 715000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 725000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 725000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 725000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020e4 DATA=0xa5000423
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 725000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020e4 DATA=0xa5000423
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 725000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 745000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001090 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 745000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001090 LEN=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001090 DATA=0xa5000424
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 755000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001090 DATA=0xa5000424
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 755000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001090 DATA=0xa5000424 RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 755000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa5000424 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 775000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020e8 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 775000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020e8 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 785000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020e8 DATA=0xa5000424 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 785000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 785000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020e8 DATA=0xa5000424 STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 795000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 795000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020e8 DATA=0xa5000424
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 795000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020e8 DATA=0xa5000424
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 795000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 795000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(103) @ 815000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ ADDRESS: ADDR=0x00001094 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(339) @ 815000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] AR accepted: ADDR=0x00001094 LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(380) @ 825000: uvm_test_top.env.axi_master_ag.driver [AXI_READ] R accepted: DATA=0xa5000425 LAST=1
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(258) @ 825000: uvm_test_top.env.scoreboard [SCOREBOARD] READ CHECK: ADDR=0x00001094 DATA=0xa5000425
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(311) @ 825000: uvm_test_top.env.scoreboard [SCOREBOARD] READ DATA PASS: ADDR=0x00001094 DATA=0xa5000425
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(141) @ 825000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] READ BEAT: ADDR=0x00001094 DATA=0xa5000425 RESP=2 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(163) @ 845000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] AW accepted: ADDR=0x000020ec LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(218) @ 845000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE ADDRESS: ADDR=0x000020ec LEN=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(260) @ 855000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE BEAT: ADDR=0x000020ec DATA=0xa5000425 STRB=0xf LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(216) @ 855000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] W accepted: ADDR=0x000020ec DATA=0xa5000425 LAST=1
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(251) @ 855000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] BVALID asserted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_driver.sv(283) @ 865000: uvm_test_top.env.axi_master_ag.driver [AXI_WRITE] B response accepted
+# UVM_INFO uvm/agents/axi_master_agent/axi_master_monitor.sv(303) @ 865000: uvm_test_top.env.axi_master_ag.monitor [AXI_MON] WRITE RESPONSE: RESP=2
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(358) @ 865000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE CHECK: ADDR=0x000020ec DATA=0xa5000425
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(411) @ 865000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE DATA PASS: ADDR=0x000020ec DATA=0xa5000425
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(434) @ 865000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED SLVERR: WRITE RESPONSE RESP=2
+# UVM_INFO uvm/tests/dma_basic_test.sv(151) @ 5250000: uvm_test_top [DMA_TEST] 5us wait completed - dropping objection
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 5250000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO uvm/coverage/dma_coverage.sv(512) @ 5250000: uvm_test_top.env.coverage [COVERAGE] ==============================================
+# UVM_INFO uvm/coverage/dma_coverage.sv(518) @ 5250000: uvm_test_top.env.coverage [COVERAGE]        DMA FUNCTIONAL COVERAGE REPORT
+# UVM_INFO uvm/coverage/dma_coverage.sv(524) @ 5250000: uvm_test_top.env.coverage [COVERAGE] ==============================================
+# UVM_INFO uvm/coverage/dma_coverage.sv(535) @ 5250000: uvm_test_top.env.coverage [COVERAGE] Length:  4=0  8=0  16=0  32=0  64=0
+# UVM_INFO uvm/coverage/dma_coverage.sv(553) @ 5250000: uvm_test_top.env.coverage [COVERAGE] Registers: CTRL=1 SRC=1 DST=1 LEN=1
+# UVM_INFO uvm/coverage/dma_coverage.sv(570) @ 5250000: uvm_test_top.env.coverage [COVERAGE] AXI Command: READ=1 WRITE=1
+# UVM_INFO uvm/coverage/dma_coverage.sv(585) @ 5250000: uvm_test_top.env.coverage [COVERAGE] Burst: FIXED=0 INCR=1 WRAP=0
+# UVM_INFO uvm/coverage/dma_coverage.sv(601) @ 5250000: uvm_test_top.env.coverage [COVERAGE] Size: BYTE=0 HALFWORD=0 WORD=1
+# UVM_INFO uvm/coverage/dma_coverage.sv(617) @ 5250000: uvm_test_top.env.coverage [COVERAGE] Response: OKAY=0 EXOKAY=0 SLVERR=1 DECERR=0
+# UVM_INFO uvm/coverage/dma_coverage.sv(634) @ 5250000: uvm_test_top.env.coverage [COVERAGE] LAST: NOT_LAST=0 LAST=1
+# UVM_INFO uvm/coverage/dma_coverage.sv(649) @ 5250000: uvm_test_top.env.coverage [COVERAGE] Transactions: AXIL=4 READ=9 WRITE=9
+# UVM_INFO uvm/coverage/dma_coverage.sv(665) @ 5250000: uvm_test_top.env.coverage [COVERAGE] FUNCTIONAL COVERAGE = 43.48%
+# UVM_INFO uvm/coverage/dma_coverage.sv(674) @ 5250000: uvm_test_top.env.coverage [COVERAGE] ==============================================
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(474) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] ==========================================
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(485) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] SOURCE ADDRESS      = 0x00001074
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(495) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] DESTINATION ADDRESS = 0x000020cc
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(505) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] TRANSFER LENGTH     = 36 bytes
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(515) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] EXPECTED BEATS      = 9
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(529) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] READ BEATS          = 9
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(539) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] WRITE BEATS         = 9
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(549) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] ERROR COUNT         = 0
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(569) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] ==========================================
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(575) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] DMA DATA INTEGRITY CHECK : PASS
+# UVM_INFO uvm/scoreboard/dma_scoreboard.sv(581) @ 5250000: uvm_test_top.env.scoreboard [SCOREBOARD] ==========================================
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  193
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AXIL_DRV]     4
+# [AXIL_MON]     4
+# [AXI_MON]    45
+# [AXI_READ]    18
+# [AXI_WRITE]    36
+# [COVERAGE]    13
+# [DMA_ENV]     1
+# [DMA_ERROR_TEST]     1
+# [DMA_SEQ]     2
+# [DMA_TEST]     4
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]    61
+# [TEST_DONE]     1
+# ** Note: $finish    : /home/praseed/altera/25.1std/questa_fse/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 5250 ns  Iteration: 54  Instance: /uvm_tb_top
+# End time: 18:59:27 on Oct 04,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

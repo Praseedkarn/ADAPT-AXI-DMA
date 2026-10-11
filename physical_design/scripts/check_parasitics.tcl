@@ -1,0 +1,3 @@
+help estimate_parasitics
+help set_wire_rc
+help report_checks

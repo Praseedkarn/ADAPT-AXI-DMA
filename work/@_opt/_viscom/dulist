@@ -1,0 +1,16 @@
+2 7 uvm_pkg 4 fast 48 /home/praseed/altera/25.1std/questa_fse/uvm-1.1d 0 0 26345472 0 136476 0
+2 14 questa_uvm_pkg 4 fast 48 /home/praseed/altera/25.1std/questa_fse/uvm-1.1d 0 0 1481728 26345472 7091 0
+1 11 dma_uvm_pkg 4 fast 24 /home/praseed/ADAPT/work 0 0 3055616 26345472 6327 0
+1 18 uvm_tb_top_sv_unit 4 fast 24 /home/praseed/ADAPT/work 0 0 0 27656192 0 0
+2 7 axi4_if 5 synth 24 /home/praseed/ADAPT/work 0 0 0 0 0 0
+2 11 axi_lite_if 5 synth 24 /home/praseed/ADAPT/work 0 0 0 0 0 0
+2 11 axi_lite_if 7 fast__2 24 /home/praseed/ADAPT/work 0 0 0 0 53 0
+2 7 axi4_if 7 fast__2 24 /home/praseed/ADAPT/work 0 0 0 0 61 0
+2 15 axi4_lite_slave 4 fast 24 /home/praseed/ADAPT/work 0 0 0 0 311 0
+2 13 dma_registers 4 fast 24 /home/praseed/ADAPT/work 0 0 0 0 151 0
+2 14 dma_controller 4 fast 24 /home/praseed/ADAPT/work 0 0 131072 0 216 0
+2 16 axi4_read_master 4 fast 24 /home/praseed/ADAPT/work 0 0 0 0 176 0
+2 8 dma_fifo 4 fast 24 /home/praseed/ADAPT/work 0 0 0 0 130 0
+2 17 axi4_write_master 4 fast 24 /home/praseed/ADAPT/work 0 0 0 0 239 0
+2 12 axi4_dma_top 4 fast 24 /home/praseed/ADAPT/work 0 0 131072 0 354 0
+1 10 uvm_tb_top 4 fast 24 /home/praseed/ADAPT/work 0 0 0 27656192 159 0
